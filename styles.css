@@ -1,3 +1,47 @@
+/* Special hover for the top-right donate button */
+.donate-topright:hover {
+  background-color: #77A8BB !important;
+  color: #FFF7E1 !important; /* Keep cream color on hover */
+}
+/* Make both main buttons change to light yellow on hover */
+.btn-primary:hover,
+.btn-secondary:hover {
+  background-color: #FFF7E1;
+  color: #003366;
+  transition: background 0.3s, color 0.3s;
+}
+/*
+  Top-right Donate Button Styles
+  This makes the navy blue donate button float at the top right of the page.
+*/
+.donate-topright {
+  position: fixed;
+  top: 24px;
+  right: 32px;
+  z-index: 1001;
+  color: #FFF7E1 !important; /* Cream color for top right button text */
+}
+/*
+  Floating Logo Styles
+  This makes the logo image always visible at the top of the page.
+*/
+.floating-logo {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  width: 300px; /* Increased size for better visibility */
+  height: auto;
+  z-index: 1000;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
+  padding: 6px;
+  transition: box-shadow 0.2s;
+}
+.floating-logo:hover {
+  box-shadow: 0 4px 16px rgba(46, 157, 247, 0.18);
+}
+
 /* charity: water Brand Colors & Fonts
 
 Primary Colors:
@@ -27,14 +71,14 @@ Fonts:
 body {
   background-color: #fff7e1; /* Soft warm background */
   color: #333;
-  font-family: 'Proxima Nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Proxima Nova', Arial, Helvetica, sans-serif; /* Primary font: Proxima Nova */
   margin: 0;
   padding: 0;
 }
 
 /* Headings and logo use a different font for emphasis */
 h1, h2, .hero-logo {
-  font-family: 'Avenir', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Avenir', Arial, Helvetica, sans-serif; /* Secondary font: Avenir */
 }
 
 /* Add a slight shadow and rounded corners to each section for depth */
@@ -49,7 +93,7 @@ section {
 
 /* Hero Section Styles */
 .hero {
-  background-image: url('img/IMG_4328.jpg');
+  background-image: url('img/IMG_4328.png');
   background-size: cover;
   background-position: center;
   padding: 4rem 2rem;
@@ -110,13 +154,23 @@ section {
 /* Primary button style */
 .btn-primary {
   background-color: #003366;
-  color: white;
+  color: #FFC907; /* Primary yellow for text */
+  font-size: 1.25rem; /* Larger font size for two lines */
+  padding: 0.8rem 1.4rem; /* More padding for bigger button */
+  text-align: center;
+  white-space: normal; /* Allow text to wrap */
+  display: inline-block;
 }
 
 /* Secondary button style */
 .btn-secondary {
   background-color: #ffc907;
   color: #003366;
+  font-size: 1.1rem; /* Slightly bigger than default */
+  padding: 0.7rem 1.3rem; /* Slightly larger than default */
+  text-align: center;
+  white-space: normal;
+  display: inline-block;
 }
 
 /* Story Section Styles */
@@ -170,7 +224,7 @@ h2 {
 /* Donate Button Styles */
 .donate-button {
   display: inline-block;
-  background-color: #4FCB53; /* Green */
+  background-color: #003366; /* Dark Blue */
   color: #fff;
   padding: 14px 32px;
   text-decoration: none;
@@ -186,37 +240,111 @@ h2 {
 
 /* Change button color when hovered */
 .donate-button:hover {
-  background-color: #159A48; /* Dark Green */
+  background-color: #77A8BB; /* Light Blue */
   transform: translateY(-2px) scale(1.04); /* Slight lift */
 }
 
-/* Add some spacing between sections */
-/* (already included in section above) */
+/* LevelUp Extra Credit: Responsive Design and Effects */
+/*
+  LevelUp Extra Credit:
+  - Make your page responsive so it works well across different screen sizes (AI can help!).
+  - Experiment with CSS transition and transform effects to enhance the user experience.
+*/
 
-/* 
-  Media Queries for Responsive Design
+/* LevelUp Extra Credit: Responsive Design */
+/*
+  Extra Responsive Styles for Very Small Screens (like phones)
+  These styles make sure everything fits and looks good on tiny screens.
+*/
+@media (max-width: 600px) {
+  .hero {
+    padding: 1.2rem 0.3rem;
+    min-height: 50vh;
+    border-radius: 0 0 10px 10px;
+  }
+  .hero h1 {
+    font-size: 1.1rem;
+    margin-bottom: 0.7rem;
+  }
+  .hero p {
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+  }
+  .floating-logo {
+    width: 120px;
+    top: 4px;
+    left: 4px;
+    padding: 2px;
+  }
+  .donate-topright {
+    top: 6px;
+    right: 6px;
+    font-size: 0.95rem;
+    padding: 0.4rem 0.7rem;
+  }
+  .btn, .btn-primary, .btn-secondary {
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+  }
+  .impact-image {
+    max-width: 120px;
+    margin-bottom: 10px;
+  }
+  section {
+    padding: 12px 4px;
+    margin: 10px 2px;
+  }
+  .story h2, h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* LevelUp Extra Credit: Button Effects */
+.btn-primary, .btn-secondary {
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+.btn-primary:hover, .btn-secondary:hover {
+  transform: scale(1.07) rotate(-2deg);
+}
+
+/* Media Queries for Responsive Design
   Media queries help make your website look good on different screen sizes,
   like phones (small screens) and computers (large screens).
 */
 
+/*
+  Responsive Styles for Tablets and Small Laptops
+  This helps the layout look good on medium-sized screens.
+*/
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   .hero p {
     font-size: 1rem;
   }
-  /* Make impact story image smaller and stack above the text */
+  /* Stack image and text in the impact story */
   .impact-content {
     display: block;
     text-align: center;
+    margin: 0 auto;
   }
   .impact-image {
     width: 90%;
-    max-width: 220px;
+    max-width: 160px;
+    margin: 0 auto 12px auto;
+    display: block;
+  }
+  .btn, .btn-primary, .btn-secondary {
+    font-size: 1rem;
+    padding: 0.6rem 1.1rem;
   }
 }
 
+/*
+  Responsive Styles for Larger Screens (Desktops)
+  This keeps the layout side-by-side and uses more space.
+*/
 @media (min-width: 601px) {
   /* Show image and text side by side in the impact story */
   .impact-content {
@@ -229,6 +357,51 @@ h2 {
     margin: 0 auto;
   }
   .impact-image {
-    width: 300px;
+    width: 240px;
+    max-width: 300px;
+  }
+}
+
+/* LevelUp Extra Credit: More Responsive Tweaks */
+@media (max-width: 480px) {
+  body {
+    font-size: 0.95rem;
+  }
+  .hero {
+    padding: 1.2rem 0.3rem;
+    min-height: 45vh;
+  }
+  .hero h1 {
+    font-size: 1.1rem;
+  }
+  .hero p {
+    font-size: 0.95rem;
+  }
+  .buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.7rem 0.5rem;
+  }
+  .impact-image {
+    max-width: 120px;
+  }
+  .floating-logo {
+    width: 110px;
+    top: 4px;
+    left: 4px;
+  }
+  .donate-topright {
+    top: 6px;
+    right: 6px;
+    font-size: 0.95rem;
+    padding: 0.4rem 0.7rem;
+  }
+  .story, .call-to-action {
+    padding: 1rem 0.5rem;
   }
 }
